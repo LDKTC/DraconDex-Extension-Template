@@ -1,0 +1,16 @@
+{
+  "id": "example_extension",
+  "name": "Example Extension",
+  "version": "0.1.0",
+  "entry": "index.html",
+  "files": ["index.html", "app.js", "style.css"],
+  "tables": [
+    {
+      "name": "notes",
+      "columns": [
+        { "name": "title", "type": "TEXT" },
+        { "name": "rating", "type": "INTEGER" }
+      ]
+    }
+  ]
+}
