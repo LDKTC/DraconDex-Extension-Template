@@ -1,6 +1,6 @@
 {
-  "id": "example_extension",
-  "name": "Example Extension",
+  "id": "example_plugin",
+  "name": "Example Plugin",
   "version": "0.1.0",
   "entry": "index.html",
   "files": ["index.html", "app.js", "style.css"],
@@ -9,7 +9,9 @@
       "name": "notes",
       "columns": [
         { "name": "title", "type": "TEXT" },
-        { "name": "rating", "type": "INTEGER" }
+        { "name": "body", "type": "TEXT" },
+        { "name": "rating", "type": "INTEGER" },
+        { "name": "created_at", "type": "TEXT" }
       ]
     }
   ]
