@@ -19,7 +19,9 @@ does and doesn't protect against, see
 
 ## Quick start
 
-1. Use this repo as a template (or fork it).
+1. Use this repo as a template (or fork it). Keep the `.dracondex` file at
+   the repo root — it's the marker DraconDex uses to recognize your repo as
+   a plugin (see [`.dracondex`](#dracondex) below).
 2. Edit `dracondex-plugin.json` — pick your own `id`, `name`, and the tables
    you want. The `id` becomes part of real DB table names, so choose it once
    and don't change it after people install.
@@ -34,6 +36,7 @@ does and doesn't protect against, see
 
 | File | Purpose |
 | --- | --- |
+| `.dracondex` | Marker file — tags this repo as a DraconDex plugin (see below). Not downloaded by the installer. |
 | `dracondex-plugin.json` | Manifest: id, name, version, entry point, files, and table schema. |
 | `index.html` | Entry point (must be listed in `files` and match `entry`). |
 | `app.js` | Plugin logic. Talks to its own table via `window.pluginApi.table.*`. |
@@ -42,6 +45,26 @@ does and doesn't protect against, see
 
 Only the paths listed in `files` are ever downloaded, so repo-side extras
 (README, scripts, CI, tests) cost the user nothing.
+
+## `.dracondex`
+
+A small marker file at the repo root:
+
+```json
+{
+  "dracondex": true,
+  "type": "plugin"
+}
+```
+
+It isn't part of the install flow (`dracondex-plugin.json` still owns that)
+and isn't listed in `files`, so it's never downloaded. Its only job is to be
+*checked for* — DraconDex's Settings → Plugin page shows a default
+"install from @LDKTC" recommendation list, and only repos that have a
+`.dracondex` file at their root are eligible to show up there (this
+template repo itself is always excluded from that list). Keep the file when
+you use this repo as a template so your published plugin is discoverable
+the same way.
 
 ## Manifest (`dracondex-plugin.json`)
 
